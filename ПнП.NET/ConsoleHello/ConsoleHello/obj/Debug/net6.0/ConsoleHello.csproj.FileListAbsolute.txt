@@ -1,0 +1,15 @@
+F:\Учеба\7 сем\ПнП.NET\ConsoleHello\ConsoleHello\bin\Debug\net6.0\ConsoleHello.exe
+F:\Учеба\7 сем\ПнП.NET\ConsoleHello\ConsoleHello\bin\Debug\net6.0\ConsoleHello.deps.json
+F:\Учеба\7 сем\ПнП.NET\ConsoleHello\ConsoleHello\bin\Debug\net6.0\ConsoleHello.runtimeconfig.json
+F:\Учеба\7 сем\ПнП.NET\ConsoleHello\ConsoleHello\bin\Debug\net6.0\ConsoleHello.dll
+F:\Учеба\7 сем\ПнП.NET\ConsoleHello\ConsoleHello\bin\Debug\net6.0\ConsoleHello.pdb
+F:\Учеба\7 сем\ПнП.NET\ConsoleHello\ConsoleHello\obj\Debug\net6.0\ConsoleHello.csproj.AssemblyReference.cache
+F:\Учеба\7 сем\ПнП.NET\ConsoleHello\ConsoleHello\obj\Debug\net6.0\ConsoleHello.GeneratedMSBuildEditorConfig.editorconfig
+F:\Учеба\7 сем\ПнП.NET\ConsoleHello\ConsoleHello\obj\Debug\net6.0\ConsoleHello.AssemblyInfoInputs.cache
+F:\Учеба\7 сем\ПнП.NET\ConsoleHello\ConsoleHello\obj\Debug\net6.0\ConsoleHello.AssemblyInfo.cs
+F:\Учеба\7 сем\ПнП.NET\ConsoleHello\ConsoleHello\obj\Debug\net6.0\ConsoleHello.csproj.CoreCompileInputs.cache
+F:\Учеба\7 сем\ПнП.NET\ConsoleHello\ConsoleHello\obj\Debug\net6.0\ConsoleHello.dll
+F:\Учеба\7 сем\ПнП.NET\ConsoleHello\ConsoleHello\obj\Debug\net6.0\refint\ConsoleHello.dll
+F:\Учеба\7 сем\ПнП.NET\ConsoleHello\ConsoleHello\obj\Debug\net6.0\ConsoleHello.pdb
+F:\Учеба\7 сем\ПнП.NET\ConsoleHello\ConsoleHello\obj\Debug\net6.0\ConsoleHello.genruntimeconfig.cache
+F:\Учеба\7 сем\ПнП.NET\ConsoleHello\ConsoleHello\obj\Debug\net6.0\ref\ConsoleHello.dll
