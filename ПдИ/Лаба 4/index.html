@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаба 4</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ebebeb;
+            margin: 10px;
+            padding: 20px 10px;
+        }
+        h1{
+            text-align: center;
+            color: #adadad;
+        }
+        #full-image{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        #full-image img{
+            max-width: 500px;
+            height: 300px;
+            margin: 10px;
+        }
+        #all-images img{
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1 -->
+    <div class="container">
+        <h1>Задание 1</h1>
+        <div id="full-image">
+            <img id="image" alt="Пляж" src="./image/img1.jpg" />
+        </div>
+        <div id="all-images">
+            <img alt="Пляж" src="./image/img1.jpg" />
+            <img alt="Свет" src="./image/img2.jpg" />
+            <img alt="Вишенка" src="./image/img3.jpg" />
+            <img alt="Волна" src="./image/img4.jpg" />
+            <img alt="Космос" src="./image/img5.jpg" />
+            <img alt="Котик" src="./image/img6.jpg" />
+        </div>
+        <script>
+            let allimage = document.getElementById("all-images");
+            let fullimage = document.getElementById("image");
+    
+            allimage.onclick = function(event){
+                let img = event.target.src;
+                console.log(img);
+                fullimage.src = img;
+            }
+        </script>
+    </div>  
+    <!-- 2 -->
+    <style>
+        .list{
+            padding: 20px;
+        }
+        .list p{
+            text-align: center;
+        }
+        .selected{
+            background-color: #1aae49;
+        }
+    </style>
+    <div class="container">
+        <h1>Задание 2</h1>
+        <div class="list">
+            <p>Кликни на элемент списка чтобы выделить его</p>
+            <ul id="listItems">
+                <li>Кристофер Робин</li>
+                <li>Винни Пух</li>
+                <li>Тигра</li>
+                <li>Кенга</li>
+                <li>Кролик</li>
+            </ul>
+        </div>
+        <script>
+            let list = document.getElementById("listItems");
+    
+            list.onclick = (event) => {
+                let item = event.target;
+                if(event.ctrlKey){
+                    item.classList.add("selected");
+                }
+                else{
+                    removeSelector(list);
+                    item.classList.add("selected");
+                }
+            }
+    
+            function removeSelector(list){
+                let listItems = list.childNodes;
+                
+                Array.prototype.slice.call(listItems).forEach(element => {
+                    if(element.classList !== undefined){    
+                        element.classList.remove("selected");
+                    }
+                });
+            }
+        </script>
+    </div>
+    <!-- 3 -->
+    <div class="container">
+        <h1>Задание 3</h1>
+        <p style="text-align: center;"> Нажми A, S и D </p>
+        <script>
+            function runOnKeys(func, ...codes){
+                let pressed = new Set();
+                document.addEventListener('keydown', function(event) {
+                    pressed.add(event.code);
+                    
+                    for (let code of codes) { // все ли клавиши из набора нажаты?
+                        if (!pressed.has(code)) {
+                            return;
+                        }
+                    }
+                    pressed.clear();
+                    func();
+                });
+                
+                document.addEventListener('keyup', function(event) {
+                pressed.delete(event.code);
+                });
+            }
+
+            runOnKeys(
+                () => alert("Привет!"),
+                "KeyA",
+                "KeyS",
+                "KeyD"
+            );
+        </script>
+    </div>
+    <!-- 4 -->
+    <style>
+        .calculator{
+            width: 500px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .input{
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        input{
+            width: 200px;
+        }
+        .result{
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+    </style>
+    <div class="container">
+        <h1>Задание 4</h1>
+        <div class="calculator">
+            <p>Депозитный калькулятор</з>
+            <div id="inputs">
+                <div class="input">
+                    <p>Первоначальный депозит</p>
+                    <input id="input1" type="number" step="1000" min="0" value="0"/>
+                </div>
+                <div class="input">
+                    <p>Срок вклада (месяцев)</p>
+                    <input id="input2" type="number" step="1" min="0" max="1000" value="0"/>
+                </div>
+                <div class="input">
+                    <p>Годовая процентная ставка</p>
+                    <input id="input3" type="number" step="1" min="0" max="100" value="0"/>
+                </div>
+            </div>
+            <div class="result">
+                <div>
+                    <p>Было:</p>
+                    <p id="befo">0</p>
+                </div>
+                <div>
+                    <p>Станет:</p>
+                    <p id="after">0</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            let inputs = document.getElementById("inputs");
+            let befo = document.getElementById("befo");
+            let after = document.getElementById("after");
+
+            
+            inputs.onchange = (event) => {
+                let input1 = document.getElementById("input1").value;
+                let input2 = document.getElementById("input2").value;
+                let input3 = document.getElementById("input3").value;
+
+                befo.textContent = input1;
+
+                let result = Math.round(+input1 * (1 + +input3 / 100 * +input2 / 12));
+                after.textContent = result;
+            }
+        </script>
+    </div>
+</body>
+</html>
