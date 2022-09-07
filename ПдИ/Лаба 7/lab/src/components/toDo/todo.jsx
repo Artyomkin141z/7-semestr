@@ -7,37 +7,57 @@ import { Component } from "react";
 class Todo extends Component {
     constructor(props){
         super(props);
+        this.keyID = 1;
         this.state = {
             tasks: [],
             task: "",
         }
     }
-    render(){
-        
+    deleteTask = (index) => {
+        // console.log("index: ", index);
+        this.state.tasks.splice(index, 1)
+        this.setState({tasks: this.state.tasks});
+        // console.log(this.state.tasks);
+    }
+    render(){ 
         return(
             <div className="container">
                 <div className={styles.todo}>
                     <h1>Список задач</h1>
                     <div className={styles.tasks}>
-                        {this.state.tasks.map((task) => {
+                        {this.state.tasks.map((task, index) => {
                             return <Task 
-                                task = {task}
+                                key={task.key}
+                                task = {task.title}
+                                index = {index}
+                                deleteTask = {this.deleteTask}
                             />;
                         })}   
                     </div>
-                    <div className={styles.add}>
+                    <form className={styles.add}
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            this.keyID++;
+                            this.setState({tasks: [...this.state.tasks, 
+                                {'key': this.keyID, 'title': this.state.task}]
+                                });
+                            e.target.reset();
+                        }}
+                    >
                         <input type="text"
                         onChange={(e) => {
                             this.setState({task: e.target.value})
                         }}
                         ></input>
                         <img src={add} alt="img"
-                        onClick={() => {
-                            this.setState({tasks: [...this.state.tasks, this.state.task]})
-                            console.log(this.state.tasks);
+                        onClick={(e) => {
+                            this.keyID++;
+                            this.setState({tasks: [...this.state.tasks, 
+                                {'key': this.keyID, 'title': this.state.task}]
+                                });                      
                         }}
                         />
-                    </div>
+                    </form>
                 </div>
             </div>
         );

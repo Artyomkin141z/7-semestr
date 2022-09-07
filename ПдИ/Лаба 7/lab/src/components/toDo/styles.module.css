@@ -21,6 +21,7 @@
 .add input{
     width: 360px;
     border-radius: 15px;
+    padding: 0 10px;
 }
 
 .add img{

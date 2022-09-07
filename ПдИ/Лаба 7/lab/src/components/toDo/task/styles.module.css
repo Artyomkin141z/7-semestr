@@ -4,7 +4,10 @@
     display: flex;   
     justify-content: space-between;
 
-    margin: 0 auto;
+    margin: 10px auto;
+    padding: 5px 10px;
+
+    border-radius: 15px;
 }
 
 .task div{
@@ -17,5 +20,10 @@
 }
 
 .delete{
-    width: 30px;
+    width: 20px;
+    height: 20px;
+}
+
+.active{
+    background-color: rgb(63, 179, 107);
 }
