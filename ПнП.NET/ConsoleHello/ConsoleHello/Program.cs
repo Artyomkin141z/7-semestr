@@ -1,55 +1,68 @@
-﻿namespace ConsoleHello
+﻿using System.Text;
+
+namespace ConsoleHello
 { // создаваемое пространство имен
     class Program
     { // имя класса по умолчанию
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            int[,] points = { { 2, -2 }, { 3, -22 }, { 0, 4 } };
-            les2(points);
+            string[] firstNames = { "Саша", "Маша", "Олег", "Света", "Игорь" };
+            TestStringBuilder();
         }
-
-        public static void les2(int[,] mass)
+        public static void TestStringBuilder()
         {
-            int X1 = 0, Y1 = 0, X2 = 0, Y2 = 0, distance = 0;
-            int[,] answer;
-
-            for (int i = 0; i < mass.GetLength(0); i++)
+            StringBuilder s1 = new StringBuilder("ABC"),
+            s2 = new StringBuilder("CDE"), s3 = new StringBuilder();
+            s3 = s1.Append(s2);
+            bool b1 = (s1 == s3);
+            char ch1 = s1[0], ch2 = s2[0];
+            Console.WriteLine("s1={0}, s2={1}, b1={2}," + "ch1={3},ch2 ={ 4}", s1, s2, b1, ch1, ch2);
+            StringBuilder s = new StringBuilder("Zenon");
+            s[0] = 'L'; Console.WriteLine(s);
+        }
+        public static void PrintAr(string name, Array A)
+        {
+            Console.WriteLine(name);
+            switch (A.Rank)
             {
-                int x1 = mass[i, 0];
-                int y1 = mass[i, 1];
-                for(int j = 0; j < mass.GetLength(0); j++)
-                {
-                    int x2 = mass[j, 0];
-                    int y2 = mass[j, 1];
-
-                    int localDistance = (int) Math.Sqrt(
-                        Math.Pow(Convert.ToDouble(x2 - x1), 2) + 
-                        Math.Pow(Convert.ToDouble(y2 - y1), 2)
-                        );
-                    
-
-                    if (localDistance > distance)
+                case 1:
+                    for (int i = 0; i < A.GetLength(0); i++)
+                        Console.Write("\t" + name + "[{0}]={1}", i, A.GetValue(i));
+                    Console.WriteLine();
+                    break;
+                case 2:
+                    for (int i = 0; i < A.GetLength(0); i++)
                     {
-                        distance = localDistance;   
-                        X1 = x1;
-                        Y1 = y1;
-                        X2 = x2;
-                        Y2 = y2;
+                        for (int j = 0; j < A.GetLength(1); j++)
+                            Console.Write("\t" + name + "[{0},{1}]={2}", i, j,
+                            A.GetValue(i, j));
+                        Console.WriteLine();
                     }
-                }
+                    break;
+                default: break;
             }
-            Console.WriteLine("Lesson1 1");
-            Console.WriteLine("Maximum distance between points: " + distance.ToString());
-            Console.WriteLine("Points: ("
-            + X1.ToString() + ", "
-            + Y1.ToString() + ") and ("
-            + X2.ToString() + ", " 
-            + Y2.ToString() + ")");
         }
-
-        public static void les3()
+        static string CharArrayToString(char[] ar)
         {
-
+            string result = "";
+            for (int i = 0; i < ar.Length; i++) result += ar[i];
+            return (result);
+        }
+        static void PrintCharAr(string name, char[] ar)
+        {
+            Console.WriteLine(name);
+            for (int i = 0; i < ar.Length; i++) Console.Write(ar[i]);
+            Console.WriteLine();
+        }
+        public static void TestCharArAndString()
+        {
+            string hello = "Здравствуй, Мир!";
+            char[] strM1 = hello.ToCharArray();
+            PrintCharAr("strM1", strM1);
+            char[] World = new char[3];
+            Array.Copy(strM1, 12, World, 0, 3); //копирование подстроки
+            PrintCharAr("World", World);
+            Console.WriteLine(CharArrayToString(World));
         }
     }
 }

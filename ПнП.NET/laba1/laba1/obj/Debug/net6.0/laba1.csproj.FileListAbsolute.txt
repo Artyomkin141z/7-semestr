@@ -1,0 +1,15 @@
+F:\Учеба\7 сем\ПнП.NET\laba1\laba1\bin\Debug\net6.0\laba1.exe
+F:\Учеба\7 сем\ПнП.NET\laba1\laba1\bin\Debug\net6.0\laba1.deps.json
+F:\Учеба\7 сем\ПнП.NET\laba1\laba1\bin\Debug\net6.0\laba1.runtimeconfig.json
+F:\Учеба\7 сем\ПнП.NET\laba1\laba1\bin\Debug\net6.0\laba1.dll
+F:\Учеба\7 сем\ПнП.NET\laba1\laba1\bin\Debug\net6.0\laba1.pdb
+F:\Учеба\7 сем\ПнП.NET\laba1\laba1\obj\Debug\net6.0\laba1.csproj.AssemblyReference.cache
+F:\Учеба\7 сем\ПнП.NET\laba1\laba1\obj\Debug\net6.0\laba1.GeneratedMSBuildEditorConfig.editorconfig
+F:\Учеба\7 сем\ПнП.NET\laba1\laba1\obj\Debug\net6.0\laba1.AssemblyInfoInputs.cache
+F:\Учеба\7 сем\ПнП.NET\laba1\laba1\obj\Debug\net6.0\laba1.AssemblyInfo.cs
+F:\Учеба\7 сем\ПнП.NET\laba1\laba1\obj\Debug\net6.0\laba1.csproj.CoreCompileInputs.cache
+F:\Учеба\7 сем\ПнП.NET\laba1\laba1\obj\Debug\net6.0\laba1.dll
+F:\Учеба\7 сем\ПнП.NET\laba1\laba1\obj\Debug\net6.0\refint\laba1.dll
+F:\Учеба\7 сем\ПнП.NET\laba1\laba1\obj\Debug\net6.0\laba1.pdb
+F:\Учеба\7 сем\ПнП.NET\laba1\laba1\obj\Debug\net6.0\laba1.genruntimeconfig.cache
+F:\Учеба\7 сем\ПнП.NET\laba1\laba1\obj\Debug\net6.0\ref\laba1.dll
