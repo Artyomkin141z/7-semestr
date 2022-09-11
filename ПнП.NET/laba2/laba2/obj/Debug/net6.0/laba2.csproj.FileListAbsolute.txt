@@ -1,0 +1,15 @@
+F:\Учеба\7 сем\ПнП.NET\laba2\laba2\bin\Debug\net6.0\laba2.exe
+F:\Учеба\7 сем\ПнП.NET\laba2\laba2\bin\Debug\net6.0\laba2.deps.json
+F:\Учеба\7 сем\ПнП.NET\laba2\laba2\bin\Debug\net6.0\laba2.runtimeconfig.json
+F:\Учеба\7 сем\ПнП.NET\laba2\laba2\bin\Debug\net6.0\laba2.dll
+F:\Учеба\7 сем\ПнП.NET\laba2\laba2\bin\Debug\net6.0\laba2.pdb
+F:\Учеба\7 сем\ПнП.NET\laba2\laba2\obj\Debug\net6.0\laba2.csproj.AssemblyReference.cache
+F:\Учеба\7 сем\ПнП.NET\laba2\laba2\obj\Debug\net6.0\laba2.GeneratedMSBuildEditorConfig.editorconfig
+F:\Учеба\7 сем\ПнП.NET\laba2\laba2\obj\Debug\net6.0\laba2.AssemblyInfoInputs.cache
+F:\Учеба\7 сем\ПнП.NET\laba2\laba2\obj\Debug\net6.0\laba2.AssemblyInfo.cs
+F:\Учеба\7 сем\ПнП.NET\laba2\laba2\obj\Debug\net6.0\laba2.csproj.CoreCompileInputs.cache
+F:\Учеба\7 сем\ПнП.NET\laba2\laba2\obj\Debug\net6.0\laba2.dll
+F:\Учеба\7 сем\ПнП.NET\laba2\laba2\obj\Debug\net6.0\refint\laba2.dll
+F:\Учеба\7 сем\ПнП.NET\laba2\laba2\obj\Debug\net6.0\laba2.pdb
+F:\Учеба\7 сем\ПнП.NET\laba2\laba2\obj\Debug\net6.0\laba2.genruntimeconfig.cache
+F:\Учеба\7 сем\ПнП.NET\laba2\laba2\obj\Debug\net6.0\ref\laba2.dll
