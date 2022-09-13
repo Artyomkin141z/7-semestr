@@ -1,21 +1,18 @@
 package laba.paterns;
 
-public class ST {
-    class Singleton {
-        private static Singleton instance = null;
-        private Singleton() {}
-        public static Singleton getInstance() {
-            if (instance == null) {
-                instance = new Singleton();
-            }
-            return instance;
+public class Singleton {
+    private static Singleton instance = null;
+    private Singleton() {}
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+
         }
-        public void setUp() {
-            System.out.println("setUp");
-        }
+
+        return instance;
     }
-    public void test(){
-        Singleton singleton = Singleton.getInstance();
-        singleton.setUp();
+    public void setUp() {
+        System.out.println("setUp ");
     }
 }
+
