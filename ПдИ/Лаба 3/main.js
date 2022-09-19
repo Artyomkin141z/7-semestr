@@ -29,7 +29,8 @@ function random(min, max){
 }
 
 function extractCurencyValue(str){
-    return +str.slice(1);
+    if(str[0] === '$') return +str.slice(1);
+    else return str;
 }
 
 function sumInput(){

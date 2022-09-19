@@ -1,4 +1,4 @@
-function checkAge1(age){
+    function checkAge1(age){
     return age >= 18 ? true : 'Родители разрешили?';
 }
 
