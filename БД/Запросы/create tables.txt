@@ -1,20 +1,7 @@
-/*create database RecipesDB*/
+/*create database RecipesDB;*/
 
 use RecipesDB
-/*Каталог ингредиентов*/
-create table catalog_ingredients
-(
-ingredient_id int primary key identity,
-ingredient varchar(50)
-)
-/*Каталог категорий*/
-create table catalog_category
-(
-category_id int primary key identity,
-category varchar(50)
-)
-
-/*Пользователи*/
+/*РџРѕР»СЊР·РѕРІР°С‚РµР»Рё*/
 create table users
 (
 user_id int primary key identity,
@@ -24,7 +11,7 @@ user_login varchar(50) not null,
 user_password varchar(50) not null
 )
 
-/*Рецепты*/
+/*Р РµС†РµРїС‚С‹*/
 create table recipes
 (
 recipes_id int primary key identity,
@@ -33,7 +20,7 @@ recipes_content text,
 recipes_numbers_servings int,
 recipes_time int
 )
-/*Шаги по приготовлению*/
+/*РЁР°РіРё РїРѕ РїСЂРёРіРѕС‚РѕРІР»РµРЅРёСЋ*/
 create table recipes_steps
 (
 recipes_id int foreign key references recipes(recipes_id),
@@ -41,13 +28,13 @@ recipes_step int,
 recipes_content char(1500),
 recipes_imgURL char(300)
 )
-/*Ингридиенты*/
+/*РРЅРіСЂРёРґРёРµРЅС‚С‹*/
 create table recipes_ingredients
 (
 recipes_id int foreign key references recipes(recipes_id),
-ingredient_id int foreign key references catalog_ingredients(ingredient_id)
+recipes_ingredient varchar(20)
 )
-/*Отзыв к рецепту*/
+/*РћС‚Р·С‹РІ Рє СЂРµС†РµРїС‚Сѓ*/
 create table recipes_feedback
 (
 recipes_id int foreign key references recipes(recipes_id),
@@ -55,7 +42,7 @@ commentator_id int foreign key references users(user_id),
 recipes_points int default 0,
 comment char(500)
 )
-/*Энергетическая ценность*/
+/*Р­РЅРµСЂРіРµС‚РёС‡РµСЃРєР°СЏ С†РµРЅРЅРѕСЃС‚СЊ*/
 create table recipes_energy_value
 (
 recipes_id int foreign key references recipes(recipes_id),
@@ -64,27 +51,21 @@ recipes_proteins int,
 recipes_fats int,
 recipes_carbohydrates int
 )
-/*Категории*/
+/*РљР°С‚РµРіРѕСЂРёРё*/
 create table recipes_categories
 (
 recipes_id int foreign key references recipes(recipes_id),
-category_id int foreign key references catalog_category(category_id)
-)
-/*Совет к рецепту*/
-create table recipes_advice
-(
-recipes_id int foreign key references recipes(recipes_id),
-advice text
+recipes_category char(50)
 )
 
-/*Статьи
+/*РЎС‚Р°С‚СЊРё
 create table articles
 (
 article_id int primary key identity,
 user_id int foreign key references users(user_id),
 content text
 )*/
-/*Отзывы к статье
+/*РћС‚Р·С‹РІС‹ Рє СЃС‚Р°С‚СЊРµ
 create table articles_feedback
 (
 article_id int foreign key references articles(article_id),
@@ -93,68 +74,68 @@ articles_points int default 0,
 comment char(500)
 )*/
 
-/*Подборки с рецептами*/
+/*РџРѕРґР±РѕСЂРєРё СЃ СЂРµС†РµРїС‚Р°РјРё*/
 create table selections
 (
 selection_id int primary key identity,
 selection_title char(100),
 content text
 )
-/*Рецепты с подборки*/
+/*Р РµС†РµРїС‚С‹ СЃ РїРѕРґР±РѕСЂРєРё*/
 create table selections_recipes
 (
 selection_id int foreign key references selections(selection_id),
 recipes_id int foreign key references recipes(recipes_id),
 content text
 )
-/*Отзыв к подборке
+/*РћС‚Р·С‹РІ Рє РїРѕРґР±РѕСЂРєРµ*/
 create table selections_feedback
 (
 selection_id int foreign key references selections(selection_id),
 commentator_id int foreign key references users(user_id),
 selections_points int default 0,
 comment char(500)
-)*/
+)
 
-/*Созданные рецепты*/
+/*РЎРѕР·РґР°РЅРЅС‹Рµ СЂРµС†РµРїС‚С‹*/
 create table user_recipes
 (
 recipes_id int foreign key references recipes(recipes_id),
 user_id int foreign key references users(user_id),
 )
-/*Подписчики
+/*РџРѕРґРїРёСЃС‡РёРєРё*/
 create table user_subscribers
 (
 user_id int foreign key references users(user_id),
 subscriber_id int foreign key references users(user_id)
-)*/
-/*Подписки
+)
+/*РџРѕРґРїРёСЃРєРё*/
 create table user_subscriptions
 (
 user_id int foreign key references users(user_id),
 subscriptions_id int foreign key references users(user_id)
-)*/
-/*Отзыв к пользователю
+)
+/*РћС‚Р·С‹РІ Рє РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ*/
 create table user_feedback
 (
 user_id int foreign key references users(user_id),
 commentator_id int foreign key references users(user_id),
 user_points int default 0,
 comment char(500)
-)*/
-/*Закладки с рецептами*/
+)
+/*Р—Р°РєР»Р°РґРєРё СЃ СЂРµС†РµРїС‚Р°РјРё*/
 create table user_recipe_bookmarks
 (
 user_id int foreign key references users(user_id),
 recipes_id int foreign key references recipes(recipes_id)
 )
-/*Закладки со статьями
+/*Р—Р°РєР»Р°РґРєРё СЃРѕ СЃС‚Р°С‚СЊСЏРјРё
 create table user_articles_bookmarks
 (
 user_id int foreign key references users(user_id),
 article_id int foreign key references articles(article_id)
 )*/
-/*Закладки с подборками*/
+/*Р—Р°РєР»Р°РґРєРё СЃ РїРѕРґР±РѕСЂРєР°РјРё*/
 create table user_selections_bookmarks
 (
 user_id int foreign key references users(user_id),
