@@ -1,6 +1,6 @@
 use RecipesDB
 go
-create procedure addUser
+alter procedure addUser
 	@name varchar(15),
 	@surname varchar(20),
 	@login varchar(50),
@@ -12,8 +12,10 @@ begin
 		from users
 		where users.user_login = @login
 	if (@isAdd > 0)
-		select 'error';	
+		print 'error';	
 	else
-		insert users values(@name, @surname, @login, @password)
-		select 'done'
+		begin
+			insert users values(@name, @surname, @login, @password)
+			print 'done'
+		end
 end
