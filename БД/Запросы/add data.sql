@@ -96,3 +96,6 @@ insert into selections_recipes values
 insert into user_selections_bookmarks values
 (1, 1),
 (2, 1)
+
+
+
