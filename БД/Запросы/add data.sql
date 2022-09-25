@@ -55,6 +55,7 @@ insert into recipes_energy_value values
 (2, 938, 42, 61, 56),
 (1, 676, 10, 46, 55)
 
+use RecipesDB
 insert into catalog_category values
 ('Завтраки'),
 ('Русская кухня'),

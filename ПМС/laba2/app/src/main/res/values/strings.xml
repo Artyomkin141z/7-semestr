@@ -1,0 +1,8 @@
+<resources>
+    <string name="label_text">Введите текст:</string>
+    <string name="entry_hint">Поле ввода</string>
+    <string name="app_name">2 Лаба</string>
+
+    <string name="text_activity1">Это первое Activity</string>
+    <string name="text_activity2">Это второе Activity</string>
+</resources>
