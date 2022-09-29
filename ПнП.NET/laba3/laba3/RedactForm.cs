@@ -10,16 +10,35 @@ using System.Windows.Forms;
 
 namespace laba3
 {
-    public partial class AddForm : System.Windows.Forms.Form
+    public partial class RedactForm : Form
     {
-        MainForm form;
-        public AddForm(MainForm form)
+        Programmer proger;
+        MainForm f;
+        string job = "";
+        string level = "";
+        string name = "";
+        int age = 0;
+        int workExp = 0;
+        public RedactForm(Programmer worker, MainForm form)
         {
             InitializeComponent();
-            this.form = form;
+            job = worker.JobTitle;
+            level = worker.KnowledgeLevel;
+            name = worker.Name;
+            age = worker.Age;
+            workExp = worker.WorkExperience;
+
+            proger = worker;
+            f = form;
+
+            jobComboBox.SelectedIndex = jobComboBox.FindString(job);
+            levelComboBox.SelectedIndex = levelComboBox.FindString(level);
+            nameTextBox.Text = name;
+            ageComboBox.SelectedIndex = ageComboBox.FindString(age.ToString());
+            workExpComboBox.SelectedIndex = workExpComboBox.FindString(workExp.ToString());
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -38,10 +57,14 @@ namespace laba3
                 }
                 else
                 {
-                    form.workers.Add(new Programmer(name, Int32.Parse(age), Int32.Parse(workExp), job, level));
+                    proger.JobTitle = job;
+                    proger.KnowledgeLevel = level;
+                    proger.Name = name;
+                    proger.Age = Int32.Parse(age);
+                    proger.WorkExperience = Int32.Parse(workExp);
                 }
             }
-            catch(Exception er)
+            catch (Exception er)
             {
                 MessageBox.Show(
                             "Введите все данные" + er.Message,
@@ -49,17 +72,16 @@ namespace laba3
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
             }
-            
+        }
+
+        private void RedactForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            f.printWorkers();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void AddForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            form.printWorkers();
         }
     }
 }

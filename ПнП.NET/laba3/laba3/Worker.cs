@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace laba3
 {
-    internal class Worker
+    /*public class Programmers
+    {
+        public List<Programmer> workers = new List<Programmer>()
+        {
+            new Programmer("Гилимович Артем", 22, 2, "Инженер-программист", "Juniot")
+        };
+    }*/
+    public class Worker
     {
         private string name = "";
         private int age = 0, workExperience = 0;
@@ -47,24 +54,36 @@ namespace laba3
         void readDocumentation(string doc);
         void learnEnglish();
     }
-    class Programmer : Worker
+    public class Programmer : Worker
     {
-        private string jobTitle = "";
-        public Programmer(string name, int age, int workExperience, string jobTitle)
+        private string jobTitle = "", knowledgeLevel = "";
+        public Programmer(string name, int age, int workExperience, string jobTitle, string knowledgeLevel)
             : base(name, age, workExperience)
         {
             this.jobTitle = jobTitle;
+            this.knowledgeLevel = knowledgeLevel;
         }
         public string JobTitle
         {
             get { return jobTitle; }
             set { jobTitle = value; }
         }
+
+        public string KnowledgeLevel
+        {
+            get { return knowledgeLevel; }
+            set { knowledgeLevel = value; }
+        }
+
+        public override void work()
+        {
+            Console.WriteLine("{0} {1} работает и он {2}", this.JobTitle, this.Name, this.KnowledgeLevel);
+        }
     }
     //класс наследник
-    class ProgrammerJunior : Programmer, IJunior
+    /*class ProgrammerJunior : Programmer, IJunior
     {
-        private string jobTitle = "", knowledgeLevel = "";
+        private string knowledgeLevel = "";
         public ProgrammerJunior(string name, int age, int workExperience, string jobTitle, string knowledgeLevel)
             : base(name, age, workExperience, jobTitle)
         {
@@ -77,10 +96,6 @@ namespace laba3
             set { knowledgeLevel = value; }
         }
         //переопределение виртуального метода
-        public override void work()
-        {
-            Console.WriteLine("{0} {1} работает и он {2}", this.JobTitle, this.Name, this.KnowledgeLevel);
-        }
         void IJunior.readDocumentation(string doc)
         {
             Console.WriteLine("{0} пошел читать документацию по {1}", this.Name, doc);
@@ -89,7 +104,7 @@ namespace laba3
         {
             Console.WriteLine("{0} учит английский", this.Name);
         }
-    }
+    }*/
     class Test : Worker
     {
         private string jobTitle = "";

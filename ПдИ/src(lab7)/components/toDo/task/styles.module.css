@@ -1,0 +1,29 @@
+.task{
+    width: 400px;
+
+    display: flex;   
+    justify-content: space-between;
+
+    margin: 10px auto;
+    padding: 5px 10px;
+
+    border-radius: 15px;
+}
+
+.task div{
+    display: flex;
+}
+
+.task div p{
+    margin: auto 10px;
+    font-size: 20px;
+}
+
+.delete{
+    width: 20px;
+    height: 20px;
+}
+
+.active{
+    background-color: rgb(63, 179, 107);
+}
