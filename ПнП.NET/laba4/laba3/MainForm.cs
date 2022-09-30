@@ -27,14 +27,19 @@ namespace laba3
         public MainForm()
         {
             InitializeComponent();
+
             workers.Add(new Programmer("Гилимович Артем", 22, 1, "Инженер-программист", "Junior"));
             workers.Add(new Programmer("Атрахименок Илья", 19, 2, "Инженер-программист", "Middle"));
             workers.Add(new Programmer("Лях Роман", 43, 2, "Инженер-программист", "Senior"));
             workers.Add(new Programmer("Пралич Артем", 62, 4, "Инженер-программист", "Junior"));
             workers.Add(new Programmer("Ковалев Евгений", 40, 9, "Инженер-программист", "Junior"));
             workers.Add(new Programmer("Павлий Павел", 15, 7, "Инженер-программист", "Middle"));
+            
             printWorkers(workers);
             panelListShowWorkers.Visible = true;
+
+            saveFileDialog1.DefaultExt = ".json";
+            saveFileDialog1.Filter = "Text files(*.json)|*.*";
         }
         public void printWorkers(List<Programmer> workers)
         {
@@ -385,14 +390,21 @@ namespace laba3
         {
             string json = JsonSerializer.Serialize(workers);
 
-            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+            if (saveFileDialog1.ShowDialog() 
+                == DialogResult.Cancel)
                 return;
-            // получаем выбранный файл
             string filename = saveFileDialog1.FileName;
-            // сохраняем текст в файл
             System.IO.File.WriteAllText(filename, json);
+        }
 
-            MessageBox.Show(json);
+        private void импортироватьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            string filename = openFileDialog1.FileName;
+            string json = System.IO.File.ReadAllText(filename);
+            workers = JsonSerializer.Deserialize<List<Programmer>>(json);
+            printWorkers(workers);
         }
     }
 }

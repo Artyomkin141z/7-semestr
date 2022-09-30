@@ -75,6 +75,12 @@
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.импортироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.блокнотToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.файлToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panelListRedactWorkers.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -91,6 +97,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
             this.работникToolStripMenuItem,
+            this.блокнотToolStripMenuItem,
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -113,28 +120,28 @@
             // добавитьToolStripMenuItem
             // 
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(170, 24);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
             // 
             // просмторетьToolStripMenuItem
             // 
             this.просмторетьToolStripMenuItem.Name = "просмторетьToolStripMenuItem";
-            this.просмторетьToolStripMenuItem.Size = new System.Drawing.Size(170, 24);
+            this.просмторетьToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
             this.просмторетьToolStripMenuItem.Text = "Просмтореть";
             this.просмторетьToolStripMenuItem.Click += new System.EventHandler(this.просмторетьToolStripMenuItem_Click);
             // 
             // удалитьToolStripMenuItem
             // 
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(170, 24);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
             // редактироватьToolStripMenuItem
             // 
             this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
-            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(170, 24);
+            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
             this.редактироватьToolStripMenuItem.Text = "Редактировать";
             this.редактироватьToolStripMenuItem.Click += new System.EventHandler(this.редактироватьToolStripMenuItem_Click);
             // 
@@ -520,6 +527,47 @@
             this.импортироватьToolStripMenuItem.Name = "импортироватьToolStripMenuItem";
             this.импортироватьToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
             this.импортироватьToolStripMenuItem.Text = "Импортировать";
+            this.импортироватьToolStripMenuItem.Click += new System.EventHandler(this.импортироватьToolStripMenuItem_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // блокнотToolStripMenuItem
+            // 
+            this.блокнотToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.открытьToolStripMenuItem,
+            this.файлToolStripMenuItem1});
+            this.блокнотToolStripMenuItem.Name = "блокнотToolStripMenuItem";
+            this.блокнотToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.блокнотToolStripMenuItem.Text = "Блокнот";
+            // 
+            // открытьToolStripMenuItem
+            // 
+            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
+            this.открытьToolStripMenuItem.Text = "Открыть";
+            // 
+            // файлToolStripMenuItem1
+            // 
+            this.файлToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сохранитьToolStripMenuItem1,
+            this.открытьToolStripMenuItem1});
+            this.файлToolStripMenuItem1.Name = "файлToolStripMenuItem1";
+            this.файлToolStripMenuItem1.Size = new System.Drawing.Size(198, 24);
+            this.файлToolStripMenuItem1.Text = "Файл";
+            // 
+            // сохранитьToolStripMenuItem1
+            // 
+            this.сохранитьToolStripMenuItem1.Name = "сохранитьToolStripMenuItem1";
+            this.сохранитьToolStripMenuItem1.Size = new System.Drawing.Size(198, 24);
+            this.сохранитьToolStripMenuItem1.Text = "Сохранить";
+            // 
+            // открытьToolStripMenuItem1
+            // 
+            this.открытьToolStripMenuItem1.Name = "открытьToolStripMenuItem1";
+            this.открытьToolStripMenuItem1.Size = new System.Drawing.Size(198, 24);
+            this.открытьToolStripMenuItem1.Text = "Открыть";
             // 
             // MainForm
             // 
@@ -598,6 +646,12 @@
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem импортироватьToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem блокнотToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem1;
     }
 }
 
