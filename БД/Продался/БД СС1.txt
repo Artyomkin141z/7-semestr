@@ -1,0 +1,299 @@
+CREATE DATABASE CC2
+GO 
+use CC2
+
+CREATE TABLE Office
+(Office_id int NOT NULL IDENTITY primary key,
+address nvarchar (40) NULL,
+Name nvarchar (40) NULL
+)
+GO
+
+INSERT Office
+( address, Name)
+VALUES
+('г.Минск ул.Центральная д.2', 'Главный офис')
+GO
+
+select * from Office
+
+CREATE TABLE Branch
+(Branch_id int NOT NULL IDENTITY primary key,
+Office_id int foreign key references dbo.Office(Office_id),
+address nvarchar (40) NULL,
+Name nvarchar (40) NULL
+)
+GO
+
+INSERT Branch
+( Office_id, address, Name)
+VALUES
+('1','г.Минск ул.Центральная д.18 к.44', 'Филиал №1'),
+('1','г.Витебск ул.Лесная д.7 к.1', 'Филиал №2'),
+('1','г.Гродно ул.Мирная д.54 к.2', 'Филиал №3'),
+('1','г.Брест ул.Строителей д.108 к.52', 'Филиал №4')
+GO
+select * from Branch
+select * from Office
+
+CREATE TABLE Kiosk
+(kiosk_id int NOT NULL IDENTITY primary key,
+branch_id int foreign key references dbo.Branch(branch_id),
+address nvarchar (40) NULL,
+Name nvarchar (40) NULL
+)
+GO
+
+INSERT Kiosk
+( branch_id, address, Name)
+VALUES
+('1','г.Минск ул.Центральная д.44 к.18', 'Киоск №1'),
+('2','г.Витебск ул.Лесная д.11 к.7', 'Киоск №2'),
+('3','г.Гродно ул.Мирная д.25 к.54', 'Киоск №3'),
+('4','г.Брест ул.Строителей д.10 к.2', 'Киоск №4'),
+
+('1','г.Минск ул.Первомайская д.18 к.44', 'Киоск №5'),
+('2','г.Витебск ул.Ленинская д.7 к.1', 'Киоск №6'),
+('3','г.Гродно ул.Советская д.54 к.2', 'Киоск №7'),
+('4','г.Брест ул.Пролетарская д.108 к.52', 'Киоск №8'),
+
+('1','г.Минск ул.Школьная д.18 к.25', 'Киоск №9'),
+('4','г.Витебск ул.Молодёжная д.21 к.8', 'Киоск №10'),
+('3','г.Гродно ул.Комсомольская д.4 к.12', 'Киоск №11'),
+('4','г.Брест ул.Луночарского д.77 к.62', 'Киоск №12')
+GO
+select * from Kiosk
+
+
+CREATE TABLE Specialty
+(specialty_id int NOT NULL IDENTITY primary key,
+Name nvarchar (40) NULL
+)
+GO
+
+INSERT Specialty
+(Name)
+VALUES
+('Управляющей'),
+('Директор'),
+('Работник'),
+('Работник-стажёр')
+GO
+select * from Specialty
+
+CREATE TABLE Employee
+(employee_id int NOT NULL IDENTITY primary key,
+specialty_id int foreign key references dbo.Specialty(specialty_id),
+full_name nvarchar (60) NULL,
+)
+GO
+
+INSERT Employee
+(specialty_id, full_name)
+VALUES
+('1','Петров А.А.'),
+('2','Иванов В.В'),
+('3','Сидоров Д.Д.'),
+('4', 'Васечкин К.П.')
+GO
+select * from Employee
+
+CREATE TABLE Service
+(service_id int NOT NULL IDENTITY primary key,
+Name nvarchar (40) NULL,
+price DECIMAL(18,2)
+)
+GO
+
+INSERT Service
+(Name, price)
+VALUES
+('Печать один лист А4 обычный','0.65'),
+('Печать один лист А4 глянцевый','0.90'),
+('Печать один лист А3 обычный','1.3'),
+('Печать один лист А3 глянцевый','1.70')
+GO
+select * from Service
+
+CREATE TABLE Status
+(status_id int NOT NULL IDENTITY primary key,
+Name nvarchar (40) NULL
+)
+GO
+
+INSERT Status
+(Name)
+VALUES
+('Постоянный'),
+('Не постоянный')
+GO
+select * from Status
+
+
+CREATE TABLE Client
+(Client_id int NOT NULL IDENTITY primary key,
+Status_id int foreign key references dbo.Status(Status_id),
+Full_name nvarchar (60) NULL,
+Have_discount_card BIT
+)
+GO
+
+INSERT Client
+(Status_id, Full_name, Have_discount_card)
+VALUES
+('1','Храповицкая К.О.','true'),
+('2','Завдко К.А.','false'),
+('1','Долгая В.В.','true'),
+('2','Филимоненко К.А.','false')
+GO
+select * from Client
+
+CREATE TABLE ServiceOrder
+(service_order_id int NOT NULL IDENTITY primary key,
+service_id int foreign key references dbo.Service(service_id),
+employee_id int foreign key references dbo.Employee(employee_id),
+client_id int foreign key references dbo.Client(client_id),
+date DATE,
+cost DECIMAL(18,2)
+)
+GO
+
+INSERT ServiceOrder
+(service_id, employee_id, client_id, date, cost)
+VALUES
+('2','3','1','15.08.2022','1.3'),
+('3','3','1','15.08.2022','1.8'),
+('4','4','4','13.08.2022','1.3'),
+('5','4','5','18.08.2022','1.7')
+GO
+select * from ServiceOrder
+
+CREATE TABLE Building
+(Building_id int NOT NULL IDENTITY primary key,
+address nvarchar (40) NULL,
+Name nvarchar (40) NULL,
+)
+GO
+
+INSERT Building
+(address, Name)
+VALUES
+('г.Минск пр.Независимости д.12 к.2', 'Завод бумаги'),
+('г.Витебск ул.Декабристов д.7 к.1', 'Завод глянцевой бумаги')
+GO
+select * from Building
+
+CREATE TABLE ProductType
+(product_type_id int NOT NULL IDENTITY primary key,
+Name nvarchar (40) NULL
+)
+GO
+
+INSERT ProductType
+(Name)
+VALUES
+('Бумана А4'),
+('Бумана А3'),
+('Бумана глянцевая А4'),
+('Бумана глянцевая А3')
+GO
+
+select * from ProductType
+
+CREATE TABLE Provider
+(provider_id int NOT NULL IDENTITY primary key,
+product_type_id int foreign key references dbo.ProductType(product_type_id),
+Name nvarchar (40) NULL
+)
+GO
+
+INSERT Provider
+(product_type_id, Name)
+VALUES
+('1', 'Поставщик обычной бумаги'),
+('2', 'Поставщик обычной бумаги'),
+('3', 'Поставщик глянцевой бумаги'),
+('4', 'Поставщик глянцевой бумаги')
+GO
+select * from Provider
+
+CREATE TABLE ProductOrder
+(product_order_id int NOT NULL IDENTITY primary key,
+building_id int foreign key references dbo.Building(building_id),
+provider_id int foreign key references dbo.Provider(provider_id),
+date DATE,
+cost DECIMAL(18,2)
+)
+GO
+
+INSERT ProductOrder
+(building_id, provider_id, date,cost)
+VALUES
+('1','1','14.02.2022','22'),
+('1','2','19.04.2022','27'),
+('1','3','27.01.2022','30'),
+('1','4','01.06.2022','25')
+GO
+select * from ProductOrder
+
+CREATE TABLE Product
+(product_id int NOT NULL IDENTITY primary key,
+product_type_id int foreign key references dbo.ProductType(product_type_id),
+provider_id int foreign key references dbo.Provider(provider_id),
+buy_price DECIMAL(18,2),
+sell_price DECIMAL(18,2), 
+Name nvarchar (40) NULL
+)
+GO
+
+INSERT Product
+(product_type_id, provider_id, buy_price,sell_price,Name)
+VALUES
+('1','1','0.05','0.03','Бумага А4'),
+('2','2','0.09','0.07','Бумага А3'),
+('3','3','0.2','0.1','Бумага глянцевая А4'),
+('4','4','0.4','0.2','Бумага глянцевая А3')
+GO
+select * from Product
+
+
+CREATE TABLE PersonalDiscount
+(discount_id int NOT NULL IDENTITY primary key,
+branch_id int foreign key references dbo.Branch(Branch_id),
+product_id int foreign key references dbo.Product(product_id),
+client_id int foreign key references dbo.Client(Client_id),
+discount_percentage TINYINT
+)
+GO
+
+create table BranchOrder
+(
+branchOrder_id int NOT NULL IDENTITY primary key,
+service_order_id int foreign key references dbo.ServiceOrder(service_order_id),
+branch_id int foreign key references dbo.Branch(Branch_id)
+)
+go
+insert BranchOrder values
+(39, 1),
+(40, 1),
+(41, 2),
+(42, 3),
+(43, 4),
+(44, 4),
+(44, 4)
+
+create table KiosOrder
+(
+kioskOrder_id int NOT NULL IDENTITY primary key,
+service_order_id int foreign key references dbo.ServiceOrder(service_order_id),
+kiosk_id int foreign key references dbo.Kiosk(kiosk_id)
+)
+go
+insert KiosOrder values
+(39, 1),
+(40, 2),
+(41, 3),
+(42, 4),
+(43, 5),
+(44, 6),
+(44, 7)

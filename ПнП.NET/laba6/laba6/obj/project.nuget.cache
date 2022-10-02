@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "a/6zsUtBLGC5RPDzcBJU6kghjsgr/KBUYhbL/5787DDp2fPfwuPOghJe86NKdOIB1J7yjTwGoDWdwQGctOJG3A==",
+  "success": true,
+  "projectFilePath": "F:\\Учеба\\7 сем\\ПнП.NET\\laba6\\laba6\\laba6.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gilim\\.nuget\\packages\\fsharp.core\\6.0.6\\fsharp.core.6.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}

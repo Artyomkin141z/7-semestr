@@ -1,4 +1,5 @@
 ﻿using laba3;
+using Notepad;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -405,6 +406,17 @@ namespace laba3
             string json = System.IO.File.ReadAllText(filename);
             workers = JsonSerializer.Deserialize<List<Programmer>>(json);
             printWorkers(workers);
+        }
+
+        private void блокнотToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StartNote sn = new StartNote();
+            sn.startNotepad();
         }
     }
 }

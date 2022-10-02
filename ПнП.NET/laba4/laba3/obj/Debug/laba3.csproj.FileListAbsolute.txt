@@ -44,3 +44,11 @@ F:\Учеба\7 сем\ПнП.NET\laba4\laba3\bin\Debug\System.Text.Json.xml
 F:\Учеба\7 сем\ПнП.NET\laba4\laba3\bin\Debug\System.Threading.Tasks.Extensions.xml
 F:\Учеба\7 сем\ПнП.NET\laba4\laba3\bin\Debug\System.ValueTuple.xml
 F:\Учеба\7 сем\ПнП.NET\laba4\laba3\obj\Debug\laba3.csproj.CopyComplete
+F:\Учеба\7 сем\ПнП.NET\laba4\laba3\obj\Debug\FileDialogExtenders.FileDialogControlBase.resources
+F:\Учеба\7 сем\ПнП.NET\laba4\laba3\obj\Debug\Notepad.SaveOpenDialog.resources
+F:\Учеба\7 сем\ПнП.NET\laba4\laba3\obj\Debug\Notepad.Forms.About.resources
+F:\Учеба\7 сем\ПнП.NET\laba4\laba3\obj\Debug\Notepad.Forms.FindDialog.resources
+F:\Учеба\7 сем\ПнП.NET\laba4\laba3\obj\Debug\Notepad.Forms.GoToLineDialog.resources
+F:\Учеба\7 сем\ПнП.NET\laba4\laba3\obj\Debug\Notepad.Forms.Notepad.resources
+F:\Учеба\7 сем\ПнП.NET\laba4\laba3\obj\Debug\Notepad.Forms.ReplaceDialog.resources
+F:\Учеба\7 сем\ПнП.NET\laba4\laba3\obj\Debug\Notepad.Forms.SavePrompt.resources
