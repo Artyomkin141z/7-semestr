@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "X78tThDPGsIB7Am6AtkhOMm6/9/0RoNhqEzUkLTY0KPL3llncPtN4D+t5G3uesWuMrU82qsJxl+6RaeZdCc0eA==",
+  "success": true,
+  "projectFilePath": "F:\\Учеба\\7 сем\\ПнП.NET\\laba10\\laba10\\laba10.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gilim\\.nuget\\packages\\fparsec\\1.1.1\\fparsec.1.1.1.nupkg.sha512",
+    "C:\\Users\\gilim\\.nuget\\packages\\fsharp.core\\6.0.6\\fsharp.core.6.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,4 +1,4 @@
-/*create database CopyCenter*/
+create database CopyCenter
 
 use CopyCenter
 CREATE TABLE Office
