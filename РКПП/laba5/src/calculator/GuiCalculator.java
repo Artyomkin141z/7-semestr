@@ -1,8 +1,5 @@
 package calculator;
 
-import java.util.Scanner;
-import calculator.Calculator;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -21,7 +18,7 @@ public class GuiCalculator {
 }
 class CalculatorFrame extends JFrame {
     public CalculatorFrame() {
-        setTitle("Калькулятор java-lessons.ru");
+        setTitle("Калькулятор");
         CalculatorPanel panel = new CalculatorPanel();
         add(panel);
         pack();
@@ -34,7 +31,9 @@ class CalculatorFrame extends JFrame {
     }
 }
 class CalculatorPanel extends JPanel {
+    private JLabel eqLine;
     private JButton display;
+    private JButton display2;
     private JPanel panel;
     private BigDecimal result;
     private String lastCommand;
@@ -44,30 +43,49 @@ class CalculatorPanel extends JPanel {
         result = BigDecimal.ZERO;
         lastCommand = "=";
         start = true;
+
+        display2 = new JButton("qwert");
+        display2.setEnabled(false);
+        display2.setFont(display2.getFont().deriveFont(50f));
+
         display = new JButton("0");
         display.setEnabled(false);
         display.setFont(display.getFont().deriveFont(50f));
+
         add(display, BorderLayout.NORTH);
         ActionListener insert = new InsertAction();
         ActionListener command = new CommandAction();
         panel = new JPanel();
-        panel.setLayout(new GridLayout(4, 4));
+        panel.setLayout(new GridLayout(4, 6));
+        addButton("%", command);
+        addButton("CE", command);
+        addButton("C", command);
+        addButton("x", command);
+
+        addButton("1/x", command);
+        addButton("x^2", command);
+        addButton("sqrt(x)", command);
+        addButton("/", command);
+
         addButton("7", insert);
         addButton("8", insert);
         addButton("9", insert);
-        addButton("÷", command);
+        addButton("*", command);
+
         addButton("4", insert);
         addButton("5", insert);
         addButton("6", insert);
-        addButton("*", command);
+        addButton("-", command);
+
         addButton("1", insert);
         addButton("2", insert);
         addButton("3", insert);
-        addButton("–", command);
-        addButton("0", insert);
-        addButton(".", insert);
-        addButton("=", command);
         addButton("+", command);
+
+        addButton("+/-", insert);
+        addButton("0", insert);
+        addButton(",", command);
+        addButton("=", command);
         add(panel, BorderLayout.CENTER);
     }
     private void addButton(String label, ActionListener listener) {
