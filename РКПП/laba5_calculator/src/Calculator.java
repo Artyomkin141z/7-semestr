@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 public class Calculator extends JFrame implements ActionListener {
     private JTextField inputJT;
     private JTextField numberJT;
+    private JTextField memoryJT;
     private JButton num1;
     private JButton num2;
     private JButton num3;
@@ -32,6 +33,12 @@ public class Calculator extends JFrame implements ActionListener {
     private JButton operEarly;//Равно
     private JButton operSign;//Знак числа
 
+    private JButton operMC;//Минус
+    private JButton operMR;//Плюс
+    private JButton operMPlus;//Точка
+    private JButton operMMinus;//Равно
+    private JButton operMS;//Знак числа
+
 
     private Calculation c;
     Calculator(){
@@ -46,21 +53,51 @@ public class Calculator extends JFrame implements ActionListener {
         JPanel calcPanel = new JPanel(new GridLayout(2, 1));
         this.getContentPane().add(calcPanel, "North");
 
+        JPanel memoryPanel = new JPanel(new GridLayout(1, 6));
+
         // Пример
         this.inputJT = new JTextField("");
         this.inputJT.setHorizontalAlignment(4);
         this.inputJT.setEditable(false);
         this.inputJT.setBackground(Color.white);
 
-        // Пример
+        this.memoryJT = new JTextField("");
+        this.memoryJT.setEditable(false);
+        this.memoryJT.setBackground(Color.white);
+
+        // Число
         this.numberJT = new JTextField("0");
         this.numberJT.setHorizontalAlignment(4);
         this.numberJT.setEditable(false);
         this.numberJT.setBackground(Color.white);
 
+        this.operMC = new JButton("MC");
+        this.operMC.setActionCommand("MC");
+        this.operMR = new JButton("MR");
+        this.operMR.setActionCommand("MR");
+        this.operMPlus = new JButton("M+");
+        this.operMPlus.setActionCommand("M+");
+        this.operMMinus = new JButton("M-");
+        this.operMMinus.setActionCommand("M-");
+        this.operMS = new JButton("MS");
+        this.operMS.setActionCommand("MS");
+        this.operMC.addActionListener(this);
+        this.operMR.addActionListener(this);
+        this.operMPlus.addActionListener(this);
+        this.operMMinus.addActionListener(this);
+        this.operMS.addActionListener(this);
+
+        memoryPanel.add(this.memoryJT);
+        memoryPanel.add(this.operMC);
+        memoryPanel.add(this.operMR);
+        memoryPanel.add(this.operMPlus);
+        memoryPanel.add(this.operMMinus);
+        memoryPanel.add(this.operMS);
+
         JPanel operationsJP = new JPanel(new GridLayout(6, 4));
         this.getContentPane().add(calcPanel, "North");
-        this.getContentPane().add(operationsJP, "Center");
+        this.getContentPane().add(memoryPanel, "Center");
+        this.getContentPane().add(operationsJP, "South");
         Font displayFont = new Font("Calibri", 2, 20);
 
         this.numberJT.setFont(displayFont);
@@ -180,6 +217,7 @@ public class Calculator extends JFrame implements ActionListener {
     }
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
+        c.checkNum();
         switch (command){
             case "0":
                 c.printStrNumber("0");
@@ -222,40 +260,90 @@ public class Calculator extends JFrame implements ActionListener {
                 numberJT.setText(c.getStrNumber());
                 break;
             case "%":
+                c.changeNumber("%");
+                numberJT.setText(c.getStrNumber());
                 break;
             case "CE":
+                c.strNumber = "";
+                numberJT.setText(c.getStrNumber());
                 break;
             case "C":
+                c.clearCalculator();
+                numberJT.setText(c.getStrNumber());
+                inputJT.setText(c.getStrExample());
                 break;
             case "<-":
+                c.clearStrNumber();
+                numberJT.setText(c.getStrNumber());
                 break;
             case "1/x":
+                c.changeNumber("1/x");
+                numberJT.setText(c.getStrNumber());
                 break;
             case "x^2":
+                c.changeNumber("x^2");
+                numberJT.setText(c.getStrNumber());
                 break;
             case "sqr":
+                c.changeNumber("sqr");
+                numberJT.setText(c.getStrNumber());
                 break;
             case "/":
                 c.setLastOperator("/");
+                inputJT.setText(c.getStrExample());
                 break;
             case "*":
                 c.setLastOperator("*");
+                inputJT.setText(c.getStrExample());
                 break;
             case "-":
                 c.setLastOperator("-");
+                inputJT.setText(c.getStrExample());
                 break;
             case "+":
                 c.setLastOperator("+");
+                inputJT.setText(c.getStrExample());
                 break;
             case ".":
+                c.printStrNumber(".");
+                c.isDot = true;
+                numberJT.setText(c.getStrNumber());
                 break;
             case "=":
-                //c.addNumberHelp();
-                inputJT.setText(c.getStrExample());
                 numberJT.setText(c.getAnswer());
+                inputJT.setText(c.getStrExample());
                 break;
             case "+/-":
+                c.changeNumber("+/-");
+                numberJT.setText(c.getStrNumber());
+                break;
+            case "MC":
+                c.removeMemory();
+                numberJT.setText(c.getStrNumber());
+                memoryJT.setText(c.memory);
+                break;
+            case "MR":
+                c.setMemory();
+                //c.printStrNumber(c.memory);
+                numberJT.setText(c.getStrNumber());
+                memoryJT.setText(c.memory);
+                break;
+            case "M+":
+                c.changeMemory("M+");
+                numberJT.setText(c.getStrNumber());
+                memoryJT.setText(c.memory);
+                break;
+            case "M-":
+                c.changeMemory("M-");
+                numberJT.setText(c.getStrNumber());
+                memoryJT.setText(c.memory);
+                break;
+            case "MS":
+                c.addMemory();
+                numberJT.setText(c.getStrNumber());
+                memoryJT.setText(c.memory);
                 break;
         }
+        inputJT.setText(c.getStrExample());
     }
 }
