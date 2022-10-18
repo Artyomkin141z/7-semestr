@@ -305,9 +305,11 @@ public class Calculator extends JFrame implements ActionListener {
                 inputJT.setText(c.getStrExample());
                 break;
             case ".":
-                c.printStrNumber(".");
-                c.isDot = true;
-                numberJT.setText(c.getStrNumber());
+                if(c.strNumber != ""){
+                    c.printStrNumber(".");
+                    c.isDot = true;
+                    numberJT.setText(c.getStrNumber());
+                }
                 break;
             case "=":
                 numberJT.setText(c.getAnswer());
