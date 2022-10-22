@@ -21,7 +21,9 @@ user_id int primary key identity,
 user_name varchar(15),
 user_surname varchar(20),
 user_login varchar(50) not null,
-user_password varchar(50) not null
+user_password varchar(50) not null,
+user_imgURL char(300),
+user_redistrDate datetimeoffset 
 )
 
 /*Рецепты*/
@@ -31,7 +33,8 @@ recipes_id int primary key identity,
 recipes_title varchar(100),
 recipes_content text,
 recipes_numbers_servings int,
-recipes_time int
+recipes_time int,
+recipes_titleImgURL char(300) 
 )
 ALTER TABLE recipes ADD recipes_imgURL CHAR (300)
 /*Шаги по приготовлению*/
@@ -59,7 +62,8 @@ create table recipes_feedback
 recipes_id int foreign key references recipes(recipes_id),
 commentator_id int foreign key references users(user_id),
 recipes_points int default 0,
-comment char(500)
+comment char(500),
+comment_time datetimeoffset 
 )
 alter table recipes_feedback add id_recipes_feedback int primary key identity
 
@@ -109,7 +113,8 @@ create table selections
 (
 selection_id int primary key identity,
 selection_title char(100),
-content text
+content text,
+selection_createDate datetimeoffset 
 )
 /*Рецепты с подборки*/
 create table selections_recipes
@@ -133,6 +138,7 @@ create table user_recipes
 (
 recipes_id int foreign key references recipes(recipes_id),
 user_id int foreign key references users(user_id),
+recipes_dateCreate datetimeoffset
 )
 alter table user_recipes add id_user_recipes int primary key identity
 /*Подписчики
@@ -159,7 +165,8 @@ comment char(500)
 create table user_recipe_bookmarks
 (
 user_id int foreign key references users(user_id),
-recipes_id int foreign key references recipes(recipes_id)
+recipes_id int foreign key references recipes(recipes_id),
+bookmarks_createDate datetimeoffset
 )
 alter table user_recipe_bookmarks add id_user_recipe_bookmarks int primary key identity
 /*Закладки со статьями
@@ -172,7 +179,8 @@ article_id int foreign key references articles(article_id)
 create table user_selections_bookmarks
 (
 user_id int foreign key references users(user_id),
-selection_id int foreign key references selections(selection_id)
+selection_id int foreign key references selections(selection_id),
+bookmarks_createDate datetimeoffset
 )
 alter table user_selections_bookmarks add id_user_selections_bookmarks int primary key identity
 
@@ -182,5 +190,6 @@ create table recipes_likes
 recipes_likes_id int primary key identity,
 recipes_id int foreign key references recipes(recipes_id),
 user_id int foreign key references users(user_id),
-isLike bit
+isLike bit,
+like_time datetimeoffset
 )

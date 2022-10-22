@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "a/6zsUtBLGC5RPDzcBJU6kghjsgr/KBUYhbL/5787DDp2fPfwuPOghJe86NKdOIB1J7yjTwGoDWdwQGctOJG3A==",
+  "dgSpecHash": "6YwTTYI/4h85vMr6bFMM58TfJtEmQmsCX8V/vknL1HoeSGZQVjGU+wlRRTRiBachXR4DDY7FvXM+H5zSzmijXA==",
   "success": true,
-  "projectFilePath": "F:\\Учеба\\7 сем\\ПнП.NET\\laba6\\laba6\\laba6.fsproj",
+  "projectFilePath": "F:\\Учеба\\7 сем\\ПнП.NET\\laba6(2)\\laba6\\laba6.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\gilim\\.nuget\\packages\\fsharp.core\\6.0.6\\fsharp.core.6.0.6.nupkg.sha512"
   ],

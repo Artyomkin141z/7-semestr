@@ -169,11 +169,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Учеба\\7 сем\\ПнП.NET\\laba10\\laba10\\laba10.fsproj",
+      "projectUniqueName": "F:\\Учеба\\7 сем\\ПнП.NET\\laba10(6)\\laba10\\laba10.fsproj",
       "projectName": "laba10",
-      "projectPath": "F:\\Учеба\\7 сем\\ПнП.NET\\laba10\\laba10\\laba10.fsproj",
+      "projectPath": "F:\\Учеба\\7 сем\\ПнП.NET\\laba10(6)\\laba10\\laba10.fsproj",
       "packagesPath": "C:\\Users\\gilim\\.nuget\\packages\\",
-      "outputPath": "F:\\Учеба\\7 сем\\ПнП.NET\\laba10\\laba10\\obj\\",
+      "outputPath": "F:\\Учеба\\7 сем\\ПнП.NET\\laba10(6)\\laba10\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

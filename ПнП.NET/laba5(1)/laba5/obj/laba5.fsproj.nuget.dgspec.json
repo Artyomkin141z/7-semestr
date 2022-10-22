@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Учеба\\7 сем\\ПнП.NET\\laba5\\laba5\\laba5.fsproj": {}
+    "F:\\Учеба\\7 сем\\ПнП.NET\\laba5(1)\\laba5\\laba5.fsproj": {}
   },
   "projects": {
-    "F:\\Учеба\\7 сем\\ПнП.NET\\laba5\\laba5\\laba5.fsproj": {
+    "F:\\Учеба\\7 сем\\ПнП.NET\\laba5(1)\\laba5\\laba5.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Учеба\\7 сем\\ПнП.NET\\laba5\\laba5\\laba5.fsproj",
+        "projectUniqueName": "F:\\Учеба\\7 сем\\ПнП.NET\\laba5(1)\\laba5\\laba5.fsproj",
         "projectName": "laba5",
-        "projectPath": "F:\\Учеба\\7 сем\\ПнП.NET\\laba5\\laba5\\laba5.fsproj",
+        "projectPath": "F:\\Учеба\\7 сем\\ПнП.NET\\laba5(1)\\laba5\\laba5.fsproj",
         "packagesPath": "C:\\Users\\gilim\\.nuget\\packages\\",
-        "outputPath": "F:\\Учеба\\7 сем\\ПнП.NET\\laba5\\laba5\\obj\\",
+        "outputPath": "F:\\Учеба\\7 сем\\ПнП.NET\\laba5(1)\\laba5\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
